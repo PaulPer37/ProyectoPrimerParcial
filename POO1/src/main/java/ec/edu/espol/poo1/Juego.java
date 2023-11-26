@@ -7,8 +7,8 @@ public class Juego {
     private ArrayList<Ficha> lineaJuego;
 
     public Juego() {
-        this.jugadores = new ArrayList<>();
-        this.lineaJuego = new ArrayList<>();
+        this.jugadores = new ArrayList<Jugador>();
+        this.lineaJuego = new ArrayList<Ficha>();
     }
     
     public void agregarJugador(String nombre) {
@@ -16,7 +16,7 @@ public class Juego {
     }
 
     public int obtenerValorInicioLinea() {
-        return lineaJuego.get(lineaJuego.size() - 1).getLado1();
+        return lineaJuego.get(0).getLado1();
     }
 
     public int obtenerValorFinLinea() {
@@ -50,6 +50,9 @@ public class Juego {
                 System.out.println("1. Inicio");
                 System.out.println("2. Fin");
                 int opcion = Integer.parseInt(sc.next());
+                while(opcion < 1 || opcion > 2){
+                System.out.println("Opción no válida, ingrese una valida:");
+                opcion = Integer.parseInt(sc.next());}
                 if (opcion == 1){
                     lineaJuego.add(0, f);
                     System.out.println("Ingrese el valor del lado 1: ");
@@ -63,6 +66,7 @@ public class Juego {
                 }else{
                     System.out.println("Opción no válida");
                 }
+            
             }
         }else{
             if(lineaJuego.isEmpty()){
@@ -72,11 +76,11 @@ public class Juego {
                 if(f.getLado2() == obtenerValorInicioLinea()){
                     lineaJuego.add(0, f);
                     j.removerFicha(f);
-                    //return true; dejarlo como comentario para usar el return de la funcion.
+                   
                 }else if(f.getLado1() == obtenerValorFinLinea()){
                     lineaJuego.add(f);
                     j.removerFicha(f); 
-                    return true;
+                    
                 }else{
                     return false;
                 }
@@ -118,5 +122,9 @@ public class Juego {
 
     public ArrayList<Ficha> getLineaJuego() {
         return lineaJuego;
+    }
+
+    private void While(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
