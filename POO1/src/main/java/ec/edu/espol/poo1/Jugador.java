@@ -52,7 +52,14 @@ public class Jugador {
            
     }
     
-    
+    public void imprimirMano(){
+        for (int i = 0; i < mano.size(); i++) {
+            System.out.print(mano.get(i).toString());
+            if (i < mano.size() - 1) {
+                System.out.print("-");
+            }
+        }
+    }
     
     
     
