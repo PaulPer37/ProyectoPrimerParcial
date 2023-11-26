@@ -1,27 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package ec.edu.espol.poo1;
-
+package ec.edu.espol.proyecto;
 import java.util.ArrayList;
 import java.util.Random;
-
-/**
- *
- * @author DHAMAR
- */
-public class Utilitaria {
-    
-    public static ArrayList<Ficha> crearManoJugador(){
-        ArrayList<Ficha> fichas = new ArrayList <Ficha>();
+public class Utilitaria{
+    public static ArrayList<Ficha> crearManoJugador() {
+        ArrayList<Ficha> mano = new ArrayList<>();
         Random random = new Random();
-        for (int i=1; i<=6; i++){
-            Ficha f = new Ficha (random.nextInt(6) + 1,random.nextInt(6) + 1);
-            fichas.add(f);
+        for (int i = 0; i < 5; i++) {
+            int lado1 = random.nextInt(1,7);
+            int lado2 = random.nextInt(1,7);
+            Ficha ficha = new Ficha(lado1, lado2){};
+            mano.add(ficha);
         }
-        fichas.add( new FichaComodin() );
-        return fichas;
-        
+        FichaComodin fichaComodin = new FichaComodin();
+        mano.add(fichaComodin);
+        return mano;
     }
 }
