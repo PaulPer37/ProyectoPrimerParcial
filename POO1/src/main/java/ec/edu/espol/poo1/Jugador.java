@@ -51,4 +51,8 @@ public class Jugador {
        
            
     }
+
+    public ArrayList<Ficha> getMano(){
+        return this.mano;
+    }
 }
