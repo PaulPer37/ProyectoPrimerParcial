@@ -1,12 +1,13 @@
 package ec.edu.espol.poo1;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class POO1{
-    public void jugar(){
+    public static void jugar(){
         Juego juego = new Juego();
-        int i = 1;
+        
         System.out.println("Escoja una opcion: ");
          Scanner sc = new Scanner(System.in);
         sc.useDelimiter("\n");
@@ -30,7 +31,7 @@ public class POO1{
                     opcion = Integer.parseInt(sc.next());
                 }else if (opcion == 2) {
                     System.out.println("Maquina agregada");
-                    juego.agregarJugador("Maquina"+i);
+                    juego.agregarJugador("Maquina");
                     System.out.println("1. Agregar Jugador");
                     System.out.println("2. Agregar maquina");
                     System.out.println("3. Empezar Partida");
@@ -57,7 +58,7 @@ public class POO1{
                 }else if (opcion == 2) {
                     System.out.println("Maquina agregada");
                     
-                    juego.agregarJugador("maquina"+i);
+                    juego.agregarJugador("maquina");
                     System.out.println("1. Agregar Jugador");
                     System.out.println("2. Agregar maquina");
                     System.out.println("3. Empezar Partida");
@@ -65,29 +66,38 @@ public class POO1{
                 }
                 }
         System.out.println("Que empieze el juego");
+        int op = 0;
+        while(op == 0){
+            for(Jugador jugador:juego.getJugadores()){
+                System.out.println("\nTurno de " + jugador.getNombre());
+                juego.mostrarLinea();
+                jugador.imprimirMano();
+                if(!jugador.getNombre().equals("maquina")){
+                    System.out.println("Ingrese la posicion de la ficha que quiere usar");
+                    opcion = Integer.parseInt(sc.next());
+                    boolean a = juego.agregarFichaLinea(jugador.getFicha(op-1), jugador);
+                    while(!a){
+                        System.out.println("Ficha no valida, ingrese otra: ");
+                        opcion = Integer.parseInt(sc.next());
+                        a = juego.agregarFichaLinea(jugador.getFicha(op-1), jugador);
+                    }
+                    if(jugador.getMano().isEmpty()){
+                        System.out.println("Gano "+jugador.getNombre());
+                        break;
+                    }
+                }else{
+                    jugador.machinePlay();
+                    if(jugador.getMano().isEmpty()){
+                        System.out.println("Gano "+jugador.getNombre());
+                        break;
+                    }
+                }
+            }
+                    
+        }
     }
     public static void main(String[] args){
         
-        while (!juego.getJugadores().get(0).getMano().isEmpty() && !juego.getJugadores().get(1).getMano().isEmpty()){
-            //Juega el humano
-            System.out.println("\nTurno de " + juego.getJugadores().get(0).getNombre());
-            juego.mostrarLinea();
-            juego.getJugadores().get(0).imprimirMano();
-            juego.agregarFichaLinea(juego.getJugadores().get(0).getFicha(0), juego.getJugadores().get(0));
-            juego.machinePlay();
-
-            //Juega la maquina
-            System.out.println("\nTurno de " + juego.getJugadores().get(juego.getJugadores().size()-1).getNombre());
-            juego.mostrarLinea();
-            juego.getJugadores().get(1).imprimirMano();
-            juego.agregarFichaLinea(juego.getJugadores().get(1).getFicha(0), juego.getJugadores().get(1));
-            juego.machinePlay();
-        }//hay que considerar quien juega primero en tal caso si la maquina o el jugador xd
-        if(juego.getJugadores().get(0).getMano().isEmpty()){
-            System.out.println("Gano "+juego.getJugadores().get(0).getNombre());
-        }
-        if(juego.getJugadores().get(1).getMano().isEmpty()){
-            System.out.println("Gano "+juego.getJugadores().get(1).getNombre());
-        }
+        POO1.jugar();
     }
 }
