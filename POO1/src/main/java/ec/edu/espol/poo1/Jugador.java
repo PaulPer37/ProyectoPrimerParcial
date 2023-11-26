@@ -36,7 +36,7 @@ public class Jugador {
     
     
     public void imprimirMano() {
-        StringBuilder str = new StringBuilder();
+
         for(int i=0;i<mano.size();i++){
             if(i<mano.size()-1){
                 System.out.print(mano.get(i).toString()+"-");
@@ -46,20 +46,12 @@ public class Jugador {
         }
     }
     
-    public void remove(Ficha f){
+    public void removerFicha(Ficha f){
        mano.remove(f);
        
            
     }
     
-    public void imprimirMano(){
-        for (int i = 0; i < mano.size(); i++) {
-            System.out.print(mano.get(i).toString());
-            if (i < mano.size() - 1) {
-                System.out.print("-");
-            }
-        }
-    }
     
     
     
