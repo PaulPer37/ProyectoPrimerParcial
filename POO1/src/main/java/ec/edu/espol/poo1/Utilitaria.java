@@ -1,4 +1,4 @@
-package ec.edu.espol.proyecto;
+package ec.edu.espol.poo1;
 import java.util.ArrayList;
 import java.util.Random;
 public class Utilitaria{
