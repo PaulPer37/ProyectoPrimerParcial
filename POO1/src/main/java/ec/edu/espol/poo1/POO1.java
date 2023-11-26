@@ -11,7 +11,7 @@ package ec.edu.espol.poo1;
 public class POO1 {
 
     public static void main(String[] args) {
-        System.out.println("Me voy");
+        System.out.println("Me ");
         
     }
 }
