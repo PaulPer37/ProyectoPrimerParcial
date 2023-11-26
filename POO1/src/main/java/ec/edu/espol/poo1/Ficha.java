@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espol.poo1;
 
-/**
- *
- * @author RUCO HOUSE
- */
-public class Ficha {
+public abstract class Ficha {
+
     protected int lado1;
     protected int lado2;
 
@@ -27,7 +20,6 @@ public class Ficha {
 
     @Override
     public String toString() {
-        return lado1 +":" + lado2 ;
+        return lado1 + ":" + lado2;
     }
-        
 }
