@@ -13,15 +13,15 @@ import java.util.Random;
  */
 public class Utilitaria {
     
-    public static void crearManoJugador(){
-        ArrayList<Ficha> Fichas = new ArrayList <Ficha>();
+    public static ArrayList<Ficha> crearManoJugador(){
+        ArrayList<Ficha> fichas = new ArrayList <Ficha>();
         Random random = new Random();
         for (int i=1; i<=6; i++){
             Ficha f = new Ficha (random.nextInt(6) + 1,random.nextInt(6) + 1);
-            Fichas.add(f);
+            fichas.add(f);
         }
-        Fichas.add( new FichaComodin() );
-        
+        fichas.add( new FichaComodin() );
+        return fichas;
         
     }
 }

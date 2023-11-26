@@ -46,13 +46,11 @@ public class Jugador {
         }
     }
     
-    public void remove(Ficha f){
+    public void removerFicha(Ficha f){
        mano.remove(f);
        
            
     }
-    
-    
     
     
     
