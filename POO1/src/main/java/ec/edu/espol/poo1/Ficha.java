@@ -1,6 +1,6 @@
 package ec.edu.espol.poo1;
 
-public abstract class Ficha {
+public class Ficha {
 
     protected int lado1;
     protected int lado2;
