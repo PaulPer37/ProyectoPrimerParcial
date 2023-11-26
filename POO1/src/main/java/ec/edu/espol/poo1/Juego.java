@@ -63,8 +63,6 @@ public class Juego {
                     System.out.println("Ingrese el valor del lado 2: ");
                     fichaComodin.setLado2(Integer.parseInt(sc.next()));
                     j.removerFicha(f);
-                }else{
-                    System.out.println("Opción no válida");
                 }
             
             }
