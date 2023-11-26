@@ -4,6 +4,7 @@ public class POO1{
         Juego juego = new Juego();
         juego.agregarJugador("Salado3000");
         juego.agregarJugador("Maquina");
+        
         while (!juego.getJugadores().get(0).getMano().isEmpty() && !juego.getJugadores().get(1).getMano().isEmpty()){
             //Juega el humano
             System.out.println("\nTurno de " + juego.getJugadores().get(0).getNombre());

@@ -6,7 +6,7 @@ public class Jugador{
 
     public Jugador(String n, ArrayList<Ficha> mano){
         this.nombre = n;
-        this.mano = new ArrayList<Ficha>();
+        this.mano = mano;
     }
 
     public String getNombre(){
