@@ -85,6 +85,13 @@ public class Juego {
         }
         return true;
     }
+        public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public ArrayList<Ficha> getLineaJuego() {
+        return lineaJuego;
+    }
 //No termine esta wea creo
     
 }
