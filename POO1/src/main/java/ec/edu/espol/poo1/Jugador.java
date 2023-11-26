@@ -14,6 +14,12 @@ public class Jugador {
     private String nombre;
     private ArrayList<Ficha> mano;
 
+    public Jugador(String nombre, ArrayList<Ficha> mano) {
+        this.nombre = nombre;
+        this.mano = mano;
+    }
+
+    
     public String getNombre() {
         return nombre;
     }
@@ -29,7 +35,22 @@ public class Jugador {
     }
     
     
+    public void imprimirMano() {
+        StringBuilder str = new StringBuilder();
+        for(int i=0;i<mano.size();i++){
+            if(i<mano.size()-1){
+                System.out.print(mano.get(i).toString()+"-");
+            }
+            else
+                System.out.print(mano.get(i).toString());
+        }
+    }
     
+    public void remove(Ficha f){
+       mano.remove(f);
+       
+           
+    }
     
     
     
