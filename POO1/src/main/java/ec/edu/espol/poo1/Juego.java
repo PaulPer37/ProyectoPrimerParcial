@@ -16,7 +16,7 @@ public class Juego {
     }
 
     public int obtenerValorInicioLinea() {
-        return lineaJuego.get(lineaJuego.size() - 1).getLado1();
+        return lineaJuego.get(0).getLado1();
     }
 
     public int obtenerValorFinLinea() {
