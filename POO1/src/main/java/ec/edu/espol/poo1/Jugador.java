@@ -37,29 +37,6 @@ public class Jugador{
         return this.mano;
     }
      public void machinePlay(){
-     if (!jugadores.isEmpty()){//Si hay jugadores
-            //Para que la siguiente linea sea valida, se debe crear un jugador maquina manualmente en el ultimo indice de jugadores
-            Jugador maquina = jugadores.get(jugadores.size()-1);
-            //otra alternativa seria crearlo como el primer jugador
-            //Jugador maquina = jugadores.get(0); 
-            if (!maquina.getMano().isEmpty()) {//Si no tiene la mano vacia para evitar el nullPointerException
-                //Si la mano de la máquina no está vacía
-                Ficha fichaMaquina = maquina.getMano().get(0);//Juega la primera ficha
-                if (agregarFichaLinea(fichaMaquina, maquina)) {
-                    System.out.println("La máquina jugó la ficha: " + fichaMaquina.toString());
-                }else{//Si no puede jugar la primera ficha optara por el comodin
-                    for(Ficha ficha : maquina.getMano()){
-                        if (ficha instanceof FichaComodin){//Jugara la primera ficha comodin que tenga en la mano la maquina
-                            if (agregarFichaLinea(ficha, maquina)) {
-                                System.out.println("La máquina jugó la ficha comodín.");
-                            }
-                        }
-                    }
-                }
-            }
-            else{//Si no esta vaciala mano y no pudo jugar una ficha normal o comodin tonces no hace nada
-                System.out.println("La máquina no pudo jugar ninguna ficha en este turno.");
-            }
-        }
+         
     }
 }
