@@ -64,10 +64,12 @@ public class POO1{
                 System.out.println("\nTurno de " + jugador.getNombre());
                 juego.mostrarLinea();
                 System.out.println("\n");
-                jugador.imprimirMano();
+                
                 if(!jugador.getNombre().equals("maquina")){
+                    jugador.imprimirMano();
                     System.out.println("Ingrese la posicion de la ficha que quiere usar");
                     opcion = Integer.parseInt(sc.next());
+                    System.out.println(jugador.getFicha(op-1));
                     boolean a = juego.agregarFichaLinea(jugador.getFicha(op-1), jugador);
                     while(!a){
                         System.out.println("Ficha no valida, ingrese otra: ");

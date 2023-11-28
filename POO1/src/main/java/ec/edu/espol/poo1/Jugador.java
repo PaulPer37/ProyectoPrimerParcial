@@ -15,8 +15,8 @@ public class Jugador{
     }
 
     public Ficha getFicha(int i){
-        if(i>=0 && i<this.mano.size()){
-            return this.mano.get(i);
+        if(i>=0 || i<this.mano.size()){
+            return this.mano.get(i+1);
         }else{
             return null;
         }
@@ -37,51 +37,50 @@ public class Jugador{
     public ArrayList<Ficha> getMano(){
         return this.mano;
     }
-     public void machinePlay(Juego juego){
+     public boolean machinePlay(Juego juego){
          Random random = new Random();
          FichaComodin fichacomodin = new FichaComodin();
          for(Ficha ficha:mano){
             if(ficha.getClass() != fichacomodin.getClass()) {
             if(juego.agregarFichaLinea(ficha, this)){
-                break;
+                return true;
             }
             
             }
         }for(Ficha ficha:mano){
             if(ficha.getClass() == fichacomodin.getClass()) {
-                FichaComodin fich = (FichaComodin) ficha;
+                
             if (juego.getLineaJuego().isEmpty()){
                 int lado1 = random.nextInt(1,7);
                 int lado2 = random.nextInt(1,7);
-                fich.setLado1(lado1);
-                fich.setLado2(lado2);
-                this.mano.set(this.mano.indexOf(ficha), fich);
-                juego.agregarFichaLinea(fich,this);
-                break;
+                
+                Ficha ficha2 = new Ficha(lado1,lado2);
+                this.mano.set(this.mano.indexOf(ficha), ficha2);
+                juego.agregarFichaLinea(ficha2,this);
+                return true;
             }else{
                 int opcion = random.nextInt(1,3);
                 if (opcion == 1){
                     int lado1 = random.nextInt(1,7);
                     int lado2 = juego.obtenerValorInicioLinea();
-                    fich.setLado1(lado1);
-                    fich.setLado2(lado2);
-                    this.mano.set(this.mano.indexOf(ficha), fich);
-                juego.agregarFichaLinea(fich,this);
-                break;
+                    Ficha ficha2 = new Ficha(lado1,lado2);
+                this.mano.set(this.mano.indexOf(ficha), ficha2);
+                juego.agregarFichaLinea(ficha2,this);
+                return true;
                 }else if (opcion == 2) {
                     int lado1 = juego.obtenerValorFinLinea();
                     int lado2 = random.nextInt(1,7);
-                    fich.setLado1(lado1);
-                    fich.setLado2(lado2);
-                    this.mano.set(this.mano.indexOf(ficha), fich);
-                juego.agregarFichaLinea(fich,this);
-                break;
+                    Ficha ficha2 = new Ficha(lado1,lado2);
+                this.mano.set(this.mano.indexOf(ficha), ficha2);
+                juego.agregarFichaLinea(ficha2,this);
+                return true;
                 }
             
             }
             
             }
         }
+        return false;
          
      }
 }
