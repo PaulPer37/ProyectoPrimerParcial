@@ -36,13 +36,14 @@ public class Juego {
         Scanner sc = new Scanner(System.in);
         sc.useDelimiter("\n");
         sc.useLocale(Locale.US);
-        if(f instanceof FichaComodin fichaComodin) {
+        FichaComodin fichacomodin = new FichaComodin();
+        if(f.getClass() == fichacomodin.getClass()) {
             if (lineaJuego.isEmpty()){
                 lineaJuego.add(f);
                 System.out.println("Ingrese el valor del lado1: ");
-                fichaComodin.setLado1(Integer.parseInt(sc.next()));
+                fichacomodin.setLado1(Integer.parseInt(sc.next()));
                 System.out.println("Ingrese el valor del lado2: ");
-                fichaComodin.setLado2(Integer.parseInt(sc.next()));
+                fichacomodin.setLado2(Integer.parseInt(sc.next()));
                 j.removerFicha(f);
             }else{
                 // Si hay fichas en línea de juego, pide al jugador la posición donde desea agregar la ficha
@@ -56,12 +57,12 @@ public class Juego {
                 if (opcion == 1){
                     lineaJuego.add(0, f);
                     System.out.println("Ingrese el valor del lado 1: ");
-                    fichaComodin.setLado1(Integer.parseInt(sc.next()));
+                    fichacomodin.setLado1(Integer.parseInt(sc.next()));
                     j.removerFicha(f);
                 }else if (opcion == 2) {
                     lineaJuego.add(f);
                     System.out.println("Ingrese el valor del lado 2: ");
-                    fichaComodin.setLado2(Integer.parseInt(sc.next()));
+                    fichacomodin.setLado2(Integer.parseInt(sc.next()));
                     j.removerFicha(f);
                 }
             
