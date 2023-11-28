@@ -5,6 +5,35 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class POO1{
+        public static void jugarConMaquina(){
+        Juego juego = new Juego();
+        juego.agregarJugador("Salado3000");
+        juego.agregarJugador("Maquina");
+        Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
+        sc.useDelimiter("\n");
+        while (!juego.getJugadores().get(0).getMano().isEmpty() && !juego.getJugadores().get(1).getMano().isEmpty()){
+            System.out.print("\nTurno de " + juego.getJugadores().get(0).getNombre()+"\nFichas en el tablero: ");
+            juego.mostrarLinea();
+            System.out.print("\n");
+            System.out.println("Seleccione la ficha que desea jugar");
+            juego.getJugadores().get(0).imprimirMano();
+            int fichaEscogida = Integer.parseInt(sc.next())-1;
+            while (fichaEscogida<=0&&fichaEscogida>juego.getJugadores().get(0).getMano().size()){
+                fichaEscogida = Integer.parseInt(sc.next())-1;
+            }
+            juego.agregarFichaLinea(juego.getJugadores().get(0).getFicha(fichaEscogida), juego.getJugadores().get(0));
+            if (juego.getJugadores().get(0).getMano().isEmpty() || juego.getJugadores().get(1).getMano().isEmpty()){
+                break;
+            }
+            System.out.print("\nTurno de la " + juego.getJugadores().get(1).getNombre()+"\nFichas en el tablero: ");
+            juego.mostrarLinea();
+            System.out.print("\n");
+            juego.getJugadores().get(1).imprimirMano();
+            juego.getJugadores().get(juego.getJugadores().size()-1).machinePlay(juego);
+            System.out.print("\n");
+        }
+    }
     public static void jugar(){
         Juego juego = new Juego();
         
