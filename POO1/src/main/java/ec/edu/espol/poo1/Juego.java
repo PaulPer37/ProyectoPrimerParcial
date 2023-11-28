@@ -40,7 +40,6 @@ public class Juego {
         if(f.getClass() == fichacomodin.getClass()) {
             FichaComodin fich = (FichaComodin) f;
             if (lineaJuego.isEmpty()){
-                lineaJuego.add(fich);
                 System.out.println("Ingrese el valor del lado1: ");
                 fich.setLado1(Integer.parseInt(sc.next()));
                 System.out.println("Ingrese el valor del lado2: ");
@@ -100,7 +99,5 @@ public class Juego {
         return lineaJuego;
     }
 
-    private void While(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
