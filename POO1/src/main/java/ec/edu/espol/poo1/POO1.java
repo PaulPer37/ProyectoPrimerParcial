@@ -102,7 +102,7 @@ public class POO1{
                 }
             }
                     
-        }
+        }System.out.println("Se acabo el juego :D");
     }
     public static void main(String[] args){
         
