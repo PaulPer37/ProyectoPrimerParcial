@@ -5,25 +5,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class POO1{
-    public static boolean terminar(ArrayList<Ficha> lista,Juego juego){
-        for(Ficha ficha:lista){
-            if(ficha.getLado2() == juego.obtenerValorInicioLinea()){
-                    return false;
-                }else if(ficha.getLado1() == juego.obtenerValorFinLinea()){
-                    return false;
-        }
-        }
-        return true;
-}
-    public static boolean existeFichaComodin(ArrayList<Ficha> lista) {
-        FichaComodin fichaComodinBuscada=new FichaComodin();
-        for (Ficha ficha : lista) {
-            if (ficha.getClass()==fichaComodinBuscada.getClass()) {
-                return true; // Se encontró la ficha comodín en la lista
-            }
-        }
-        return false; // No se encontró la ficha comodín en la lista
-    }
+    
     public static void jugar(){
         Juego juego = new Juego();
         
@@ -122,6 +104,25 @@ public class POO1{
                     
         }while(fin == false);
         System.out.println("Se acabo el juego :D");
+    }
+    public static boolean terminar(ArrayList<Ficha> lista,Juego juego){
+        for(Ficha ficha:lista){
+            if(ficha.getLado2() == juego.obtenerValorInicioLinea()){
+                    return false;
+                }else if(ficha.getLado1() == juego.obtenerValorFinLinea()){
+                    return false;
+        }
+        }
+        return true;
+}
+    public static boolean existeFichaComodin(ArrayList<Ficha> lista) {
+        FichaComodin fichaComodinBuscada=new FichaComodin();
+        for (Ficha ficha : lista) {
+            if (ficha.getClass()==fichaComodinBuscada.getClass()) {
+                return true; // Se encontró la ficha comodín en la lista
+            }
+        }
+        return false; // No se encontró la ficha comodín en la lista
     }
     public static void main(String[] args){
         
