@@ -40,10 +40,11 @@ public class Juego {
         if(f.getClass() == fichacomodin.getClass()) {
             FichaComodin fich = (FichaComodin) f;
             if (lineaJuego.isEmpty()){
-                System.out.println("Ingrese el valor del lado1: ");
+                do{System.out.println("Ingrese el valor del lado1: ");
                 fich.setLado1(Integer.parseInt(sc.next()));
                 System.out.println("Ingrese el valor del lado2: ");
                 fich.setLado2(Integer.parseInt(sc.next()));
+                }while(fich.getLado1()>6||fich.getLado1()<1||fich.getLado2()>6||fich.getLado2()<1);
                 lineaJuego.add(fich);
                 j.removerFicha(f);
             }else{
@@ -56,13 +57,13 @@ public class Juego {
                 System.out.println("Opción no válida, ingrese una valida:");
                 opcion = Integer.parseInt(sc.next());}
                 if (opcion == 1){
-                    System.out.println("Ingrese el valor del lado 1: ");
-                    fich.setLado1(Integer.parseInt(sc.next()));
+                    do{System.out.println("Ingrese el valor del lado 1: ");
+                    fich.setLado1(Integer.parseInt(sc.next()));}while(fich.getLado1()>6||fich.getLado1()<1);
                     j.removerFicha(f);
                     lineaJuego.add(0, fich);
                 }else if (opcion == 2) {
-                    System.out.println("Ingrese el valor del lado 2: ");
-                    fich.setLado2(Integer.parseInt(sc.next()));
+                    do{System.out.println("Ingrese el valor del lado 2: ");
+                    fich.setLado2(Integer.parseInt(sc.next()));}while(fich.getLado2()>6||fich.getLado2()<1);
                     j.removerFicha(f);
                     lineaJuego.add(fich);
                 }

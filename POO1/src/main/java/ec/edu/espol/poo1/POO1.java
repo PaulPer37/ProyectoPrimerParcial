@@ -5,7 +5,15 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class POO1{
-        
+    public static boolean existeFichaComodin(ArrayList<Ficha> lista) {
+        FichaComodin fichaComodinBuscada=new FichaComodin();
+        for (Ficha ficha : lista) {
+            if (ficha.getClass()==fichaComodinBuscada.getClass()) {
+                return true; // Se encontró la ficha comodín en la lista
+            }
+        }
+        return false; // No se encontró la ficha comodín en la lista
+    }
     public static void jugar(){
         Juego juego = new Juego();
         
@@ -64,10 +72,12 @@ public class POO1{
                 System.out.println("\nTurno de " + jugador.getNombre());
                 juego.mostrarLinea();
                 System.out.println("\n");
-                
+                if(!POO1.existeFichaComodin(jugador.getMano())){
+                    System.out.println("Hola");
+                }
                 if(!jugador.getNombre().equals("maquina")){
                     jugador.imprimirMano();
-                    System.out.println("Ingrese la posicion de la ficha que quiere usar");
+                    System.out.println("\nIngrese la posicion de la ficha que quiere usar");
                     opcion = Integer.parseInt(sc.next());
                     System.out.println(jugador.getFicha(opcion-1));
                     boolean a = juego.agregarFichaLinea(jugador.getFicha(opcion-1), jugador);
@@ -76,6 +86,7 @@ public class POO1{
                         jugador.imprimirMano();
                         System.out.println("\n");
                         opcion = Integer.parseInt(sc.next());
+                        System.out.println(jugador.getFicha(opcion-1));
                         a = juego.agregarFichaLinea(jugador.getFicha(opcion-1), jugador);
                     }
                     if(jugador.getMano().isEmpty()){
