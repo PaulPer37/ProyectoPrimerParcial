@@ -16,7 +16,7 @@ public class Jugador{
 
     public Ficha getFicha(int i){
         if(i>=0 || i<this.mano.size()){
-            return this.mano.get(i+1);
+            return this.mano.get(i);
         }else{
             return null;
         }

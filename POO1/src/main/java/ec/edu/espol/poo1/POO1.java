@@ -69,12 +69,14 @@ public class POO1{
                     jugador.imprimirMano();
                     System.out.println("Ingrese la posicion de la ficha que quiere usar");
                     opcion = Integer.parseInt(sc.next());
-                    System.out.println(jugador.getFicha(op-1));
-                    boolean a = juego.agregarFichaLinea(jugador.getFicha(op-1), jugador);
+                    System.out.println(jugador.getFicha(opcion-1));
+                    boolean a = juego.agregarFichaLinea(jugador.getFicha(opcion-1), jugador);
                     while(!a){
                         System.out.println("Ficha no valida, ingrese otra: ");
+                        jugador.imprimirMano();
+                        System.out.println("\n");
                         opcion = Integer.parseInt(sc.next());
-                        a = juego.agregarFichaLinea(jugador.getFicha(op-1), jugador);
+                        a = juego.agregarFichaLinea(jugador.getFicha(opcion-1), jugador);
                     }
                     if(jugador.getMano().isEmpty()){
                         System.out.println("Gano "+jugador.getNombre());
