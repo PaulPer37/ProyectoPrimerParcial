@@ -48,39 +48,34 @@ public class Jugador{
             
             }
         }for(Ficha ficha:mano){
-            if(ficha.getClass() == fichacomodin.getClass()) {
-                
-            if (juego.getLineaJuego().isEmpty()){
-                int lado1 = random.nextInt(1,7);
-                int lado2 = random.nextInt(1,7);
-                
-                Ficha ficha2 = new Ficha(lado1,lado2);
-                this.mano.set(this.mano.indexOf(ficha), ficha2);
-                juego.agregarFichaLinea(ficha2,this);
-                return true;
-            }else{
-                int opcion = random.nextInt(1,3);
-                if (opcion == 1){
+            if(ficha.getClass() == fichacomodin.getClass()){
+                if(juego.getLineaJuego().isEmpty()){
                     int lado1 = random.nextInt(1,7);
-                    int lado2 = juego.obtenerValorInicioLinea();
-                    Ficha ficha2 = new Ficha(lado1,lado2);
-                this.mano.set(this.mano.indexOf(ficha), ficha2);
-                juego.agregarFichaLinea(ficha2,this);
-                return true;
-                }else if (opcion == 2) {
-                    int lado1 = juego.obtenerValorFinLinea();
                     int lado2 = random.nextInt(1,7);
                     Ficha ficha2 = new Ficha(lado1,lado2);
-                this.mano.set(this.mano.indexOf(ficha), ficha2);
-                juego.agregarFichaLinea(ficha2,this);
-                return true;
+                    this.mano.set(this.mano.indexOf(ficha), ficha2);
+                    juego.agregarFichaLinea(ficha2,this);
+                    return true;
+                }else{
+                    int opcion = random.nextInt(1,3);
+                    if(opcion == 1){
+                        int lado1 = random.nextInt(1,7);
+                        int lado2 = juego.obtenerValorInicioLinea();
+                        Ficha ficha2 = new Ficha(lado1,lado2);
+                        this.mano.set(this.mano.indexOf(ficha), ficha2);
+                        juego.agregarFichaLinea(ficha2,this);
+                        return true;
+                    }else if (opcion == 2){
+                        int lado1 = juego.obtenerValorFinLinea();
+                        int lado2 = random.nextInt(1,7);
+                        Ficha ficha2 = new Ficha(lado1,lado2);
+                        this.mano.set(this.mano.indexOf(ficha), ficha2);
+                        juego.agregarFichaLinea(ficha2,this);
+                        return true;
+                    }
                 }
-            
-            }
-            
             }
         }
         return false;
-         
      }
 }
