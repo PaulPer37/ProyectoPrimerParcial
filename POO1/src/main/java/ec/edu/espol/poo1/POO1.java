@@ -5,6 +5,16 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class POO1{
+    public static boolean terminar(ArrayList<Ficha> lista,Juego juego){
+        for(Ficha ficha:lista){
+            if(ficha.getLado2() == juego.obtenerValorInicioLinea()){
+                    return false;
+                }else if(ficha.getLado1() == juego.obtenerValorFinLinea()){
+                    return false;
+        }
+        }
+        return true;
+}
     public static boolean existeFichaComodin(ArrayList<Ficha> lista) {
         FichaComodin fichaComodinBuscada=new FichaComodin();
         for (Ficha ficha : lista) {
@@ -66,14 +76,20 @@ public class POO1{
                 }
                 }
         System.out.println("Que empieze el juego");
-        int op = 0;
-        while(op == 0){
+        boolean fin = false;
+        do{
+            
+
             for(Jugador jugador:juego.getJugadores()){
                 System.out.println("\nTurno de " + jugador.getNombre());
                 juego.mostrarLinea();
                 System.out.println("\n");
                 if(!POO1.existeFichaComodin(jugador.getMano())){
-                    System.out.println("Hola");
+                    if(POO1.terminar(jugador.getMano(), juego)){
+                        System.out.println("Perdio "+jugador.getNombre()+", no tiene fichas usables");
+                        fin = true;
+                        break;
+                    }
                 }
                 if(!jugador.getNombre().equals("maquina")){
                     jugador.imprimirMano();
@@ -91,18 +107,21 @@ public class POO1{
                     }
                     if(jugador.getMano().isEmpty()){
                         System.out.println("Gano "+jugador.getNombre());
+                        fin = true;
                         break;
                     }
                 }else{
                     jugador.machinePlay(juego);
                     if(jugador.getMano().isEmpty()){
                         System.out.println("Gano "+jugador.getNombre());
+                        fin = true;
                         break;
                     }
                 }
             }
                     
-        }System.out.println("Se acabo el juego :D");
+        }while(fin == false);
+        System.out.println("Se acabo el juego :D");
     }
     public static void main(String[] args){
         
