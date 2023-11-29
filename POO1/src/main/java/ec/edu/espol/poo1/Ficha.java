@@ -1,7 +1,5 @@
 package ec.edu.espol.poo1;
-
 public class Ficha {
-
     protected int lado1;
     protected int lado2;
 

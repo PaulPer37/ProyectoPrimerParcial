@@ -1,5 +1,4 @@
 package ec.edu.espol.poo1;
-
 public class FichaComodin extends Ficha{
     public FichaComodin(){
         super(-1,-1);
