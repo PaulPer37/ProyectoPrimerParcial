@@ -7,8 +7,8 @@ public class Juego {
     private ArrayList<Ficha> lineaJuego;
 
     public Juego() {
-        this.jugadores = new ArrayList<Jugador>();
-        this.lineaJuego = new ArrayList<Ficha>();
+        this.jugadores = new ArrayList<>();
+        this.lineaJuego = new ArrayList<>();
     }
     
     public void agregarJugador(String nombre) {
@@ -27,7 +27,7 @@ public class Juego {
         for (Ficha ficha : lineaJuego) {
             System.out.print(ficha.toString()); //Muestra cada ficha
             if(lineaJuego.indexOf(ficha) < lineaJuego.size() - 1){
-                System.out.print(" - "); //Cuando llegue a la ultima no añadira el guión
+                System.out.print(" - "); //Cuando llegue a la ultima ficha no añadira el guión
             }
         }
     }
@@ -58,12 +58,14 @@ public class Juego {
                 opcion = Integer.parseInt(sc.next());}
                 if (opcion == 1){
                     do{System.out.println("Ingrese el valor del lado 1: ");
-                    fich.setLado1(Integer.parseInt(sc.next()));}while(fich.getLado1()>6||fich.getLado1()<1);
+                        fich.setLado1(Integer.parseInt(sc.next()));
+                    }while(fich.getLado1()>6||fich.getLado1()<1);
                     j.removerFicha(f);
                     lineaJuego.add(0, fich);
                 }else if (opcion == 2) {
                     do{System.out.println("Ingrese el valor del lado 2: ");
-                    fich.setLado2(Integer.parseInt(sc.next()));}while(fich.getLado2()>6||fich.getLado2()<1);
+                        fich.setLado2(Integer.parseInt(sc.next()));
+                    }while(fich.getLado2()>6||fich.getLado2()<1);
                     j.removerFicha(f);
                     lineaJuego.add(fich);
                 }
@@ -77,11 +79,9 @@ public class Juego {
                 if(f.getLado2() == obtenerValorInicioLinea()){
                     lineaJuego.add(0, f);
                     j.removerFicha(f);
-                   
                 }else if(f.getLado1() == obtenerValorFinLinea()){
                     lineaJuego.add(f);
                     j.removerFicha(f); 
-                    
                 }else{
                     return false;
                 }
@@ -89,8 +89,6 @@ public class Juego {
         }
         return true;
     }
-    
-   
 
     public ArrayList<Jugador> getJugadores() {
         return jugadores;
@@ -99,6 +97,4 @@ public class Juego {
     public ArrayList<Ficha> getLineaJuego() {
         return lineaJuego;
     }
-
-    
 }
