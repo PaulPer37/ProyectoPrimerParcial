@@ -58,9 +58,11 @@ public class POO1{
         boolean fin = false;
         do{
             for(Jugador jugador:juego.getJugadores()){
-                System.out.println("\nTurno de " + jugador.getNombre());
+                System.out.print("\nTurno de " + jugador.getNombre() + ": Mano -> ");
+                jugador.imprimirMano();
+                System.out.print("\nLinea de juego -> ");
                 juego.mostrarLinea();
-                System.out.println("\n");
+                System.out.println();
                 if(!POO1.existeFichaComodin(jugador.getMano())){
                     if(POO1.terminar(jugador.getMano(), juego)){
                         System.out.println("Perdio "+jugador.getNombre()+", no tiene fichas usables");
@@ -70,10 +72,24 @@ public class POO1{
                 }
                 if(!jugador.getNombre().equals("maquina")){
                     jugador.imprimirMano();
-                    System.out.println("\nIngrese la posicion de la ficha que quiere usar");
+                    System.out.print("\nÍndice de ficha para jugar (0 es el primero): ");
                     opcion = Integer.parseInt(sc.next());
-                    System.out.println(jugador.getFicha(opcion-1));
-                    boolean esFichaValida = juego.agregarFichaLinea(jugador.getFicha(opcion-1), jugador);
+                    while(opcion<0 || opcion>(jugador.getMano().size()-1)){
+                        System.out.println("Ficha no válida");
+                        System.out.print("\nLinea de juego -> ");
+                        juego.mostrarLinea();
+                        System.out.println("\nMano -> ");
+                        jugador.imprimirMano();
+                        System.out.println("\nIngrese nuevamente un indice de ficha (0 es el primero): ");
+                        opcion = Integer.parseInt(sc.next());
+                    }
+                    boolean esFichaValida = juego.agregarFichaLinea(jugador.getFicha(opcion), jugador);
+                    if (esFichaValida){
+                        System.out.println("Movimiento Valido");
+                        System.out.print("Nueva Línea de juego -> ");
+                        juego.mostrarLinea();
+                        System.out.println();
+                    }
                     while(!esFichaValida){
                         System.out.println("Ficha no valida, ingrese otra: ");
                         jugador.imprimirMano();
@@ -81,6 +97,12 @@ public class POO1{
                         opcion = Integer.parseInt(sc.next());
                         System.out.println(jugador.getFicha(opcion-1));
                         esFichaValida = juego.agregarFichaLinea(jugador.getFicha(opcion-1), jugador);
+                        if (esFichaValida){
+                            System.out.println("Movimiento Valido");
+                            System.out.print("Nueva Línea de juego -> ");
+                            juego.mostrarLinea();
+                            System.out.println();
+                        }
                     }
                     if(jugador.getMano().isEmpty()){
                         System.out.println("Gano "+jugador.getNombre());
@@ -104,12 +126,13 @@ public class POO1{
         for(Ficha ficha:lista){
             if(ficha.getLado2() == juego.obtenerValorInicioLinea()){
                     return false;
-                }else if(ficha.getLado1() == juego.obtenerValorFinLinea()){
+            }else if(ficha.getLado1() == juego.obtenerValorFinLinea()){
                     return false;
+            }
         }
-    }
         return true;
-}
+    }
+    
     public static boolean existeFichaComodin(ArrayList<Ficha> lista) {
         FichaComodin fichaComodinBuscada=new FichaComodin();
         for (Ficha ficha : lista) {
@@ -119,8 +142,8 @@ public class POO1{
         }
         return false; // No se encontró la ficha comodín en la lista
     }
+    
     public static void main(String[] args){
-        
         POO1.jugar();
     }
 }
