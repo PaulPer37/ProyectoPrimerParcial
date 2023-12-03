@@ -71,14 +71,13 @@ public class POO1{
                     }
                 }
                 if(!jugador.getNombre().equals("maquina")){
-                    jugador.imprimirMano();
                     System.out.print("\nÍndice de ficha para jugar (0 es el primero): ");
                     opcion = Integer.parseInt(sc.next());
                     while(opcion<0 || opcion>(jugador.getMano().size()-1)){
                         System.out.println("Ficha no válida");
                         System.out.print("\nLinea de juego -> ");
                         juego.mostrarLinea();
-                        System.out.println("\nMano -> ");
+                        System.out.print("\nMano -> ");
                         jugador.imprimirMano();
                         System.out.println("\nIngrese nuevamente un indice de ficha (0 es el primero): ");
                         opcion = Integer.parseInt(sc.next());
@@ -91,12 +90,12 @@ public class POO1{
                         System.out.println();
                     }
                     while(!esFichaValida){
-                        System.out.println("Ficha no valida, ingrese otra: ");
+                        System.out.print("Ficha no valida, ingrese otra: ");
                         jugador.imprimirMano();
                         System.out.println("\n");
                         opcion = Integer.parseInt(sc.next());
-                        System.out.println(jugador.getFicha(opcion-1));
-                        esFichaValida = juego.agregarFichaLinea(jugador.getFicha(opcion-1), jugador);
+                        System.out.println(jugador.getFicha(opcion));
+                        esFichaValida = juego.agregarFichaLinea(jugador.getFicha(opcion), jugador);
                         if (esFichaValida){
                             System.out.println("Movimiento Valido");
                             System.out.print("Nueva Línea de juego -> ");
