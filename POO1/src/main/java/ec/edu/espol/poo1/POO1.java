@@ -13,6 +13,7 @@ public class POO1{
         sc.useDelimiter("\n");
         sc.useLocale(Locale.US);
         do{
+<<<<<<< HEAD
             System.out.println("1. Agregar Jugador");
             System.out.println("2. Agregar maquina");
             int opcion = Integer.parseInt(sc.next());
@@ -25,6 +26,27 @@ public class POO1{
                 while(nombre.equals("maquina")){
                         System.out.println("Nombre no valido, elija otro");
                         nombre = sc.next();
+=======
+        System.out.println("1. Agregar Jugador");
+        System.out.println("2. Agregar maquina");
+        
+        int opcion = Integer.parseInt(sc.next());
+                while(opcion < 1 || opcion > 3){
+                System.out.println("Opción no válida, ingrese una valida:");
+                opcion = Integer.parseInt(sc.next());}
+                if (opcion == 1){
+                    System.out.println("Ingrese el nombre del jugador: ");
+                    String nombre = sc.next();
+                    while(nombre.equals("maquina")){
+                        System.out.println("Nombre no valido, elija otro");
+                        nombre = sc.next();
+                    }
+                    juego.agregarJugador(nombre);
+                }else if (opcion == 2) {
+                    System.out.println("Maquina agregada");
+                    juego.agregarJugador("maquina");
+                
+>>>>>>> fd79510836aa1f536940ecb8bfb42882b2bfd0dd
                 }
                 juego.agregarJugador(nombre);
             }else if (opcion == 2) {
@@ -38,6 +60,7 @@ public class POO1{
         int opcion = Integer.parseInt(sc.next());
         while(opcion < 1 || opcion > 3){
             System.out.println("Opción no válida, ingrese una valida:");
+<<<<<<< HEAD
             opcion = Integer.parseInt(sc.next());
         }
         while(opcion == 1 || opcion == 2){
@@ -47,6 +70,31 @@ public class POO1{
                 while(nombre.equals("maquina")){
                         System.out.println("Nombre no valido, elija otro");
                         nombre = sc.next();
+=======
+            opcion = Integer.parseInt(sc.next());}
+            while(opcion == 1 || opcion == 2){
+                if (opcion == 1){
+                    System.out.println("Ingrese el nombre del jugador: ");
+                    String nombre = sc.next();
+                    while(nombre.equals("maquina")){
+                        System.out.println("Nombre no valido, elija otro");
+                        nombre = sc.next();
+                    }
+                    juego.agregarJugador(nombre);
+                    
+                    System.out.println("1. Agregar Jugador");
+                    System.out.println("2. Agregar maquina");
+                    System.out.println("3. Empezar Partida");
+                    opcion = Integer.parseInt(sc.next());
+                }else if (opcion == 2) {
+                    System.out.println("Maquina agregada");
+                    
+                    juego.agregarJugador("maquina");
+                    System.out.println("1. Agregar Jugador");
+                    System.out.println("2. Agregar maquina");
+                    System.out.println("3. Empezar Partida");
+                    opcion = Integer.parseInt(sc.next());
+>>>>>>> fd79510836aa1f536940ecb8bfb42882b2bfd0dd
                 }
                 juego.agregarJugador(nombre);
                 System.out.println("1. Agregar Jugador");
