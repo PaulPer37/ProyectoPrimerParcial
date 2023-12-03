@@ -22,6 +22,10 @@ public class POO1{
             if (opcion == 1){
                 System.out.println("Ingrese el nombre del jugador: ");
                 String nombre = sc.next();
+                while(nombre.equals("maquina")){
+                        System.out.println("Nombre no valido, elija otro");
+                        nombre = sc.next();
+                }
                 juego.agregarJugador(nombre);
             }else if (opcion == 2) {
                 System.out.println("Maquina agregada");
@@ -40,6 +44,10 @@ public class POO1{
             if (opcion == 1){
                 System.out.println("Ingrese el nombre del jugador: ");
                 String nombre = sc.next();
+                while(nombre.equals("maquina")){
+                        System.out.println("Nombre no valido, elija otro");
+                        nombre = sc.next();
+                }
                 juego.agregarJugador(nombre);
                 System.out.println("1. Agregar Jugador");
                 System.out.println("2. Agregar maquina");
